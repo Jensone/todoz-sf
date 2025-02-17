@@ -58,3 +58,35 @@
         --chart-5: 289 66% 85%;
     }
 }
+
+/* Core */
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.2rem;
+}
+
+/* Fonts */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Oswald" sans-serif;
+    font-weight: 300;
+}
+.logo {
+    font-family: "Delicious Handrawn", sans-serif;
+    font-weight: 600;
+    font-size: 1.85rem;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary);
+}
+
+/* Forms */
+input {}
+input[type="checkbox"] {}
+label {}
+select {}
+textarea {}
+button {}
