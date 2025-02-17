@@ -39,6 +39,12 @@ class Task
     #[ORM\JoinColumn(nullable: false)]
     private ?Todo $todo = null;
 
+    public function __construct()
+    {
+        $this->is_done = false;
+        $this->is_public = false;
+    }
+
     #[ORM\PrePersist]
     public function setCreatedAtValue(): void
     {
