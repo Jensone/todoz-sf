@@ -8,7 +8,7 @@ use Symfony\UX\Turbo\Attribute\Broadcast;
 
 #[ORM\Entity(repositoryClass: NetworkRepository::class)]
 #[Broadcast]
-#[ORM\HasLifecycleCallbacks]
+#[ORM\HasLifecycleCallbacks] // Gestion du cycle de vie d' l'objet 
 class Network
 {
     #[ORM\Id]
@@ -32,14 +32,14 @@ class Network
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
-    #[ORM\PrePersist]
+    #[ORM\PrePersist] // Enregistrement délégué à l'ORM Doctrine pour la valeur created_at + updated_at
     public function setCreatedAtValue(): void
     {
         $this->created_at = new \DateTimeImmutable();
         $this->updated_at = new \DateTimeImmutable();
     }
 
-    #[ORM\PreUpdate]
+    #[ORM\PreUpdate] // Enregistrement délégué à l'ORM Doctrine pour la valeur updated_at
     public function setUpdatedAtValue(): void
     {
         $this->updated_at = new \DateTimeImmutable();
