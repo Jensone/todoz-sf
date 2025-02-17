@@ -33,6 +33,9 @@ class Todo
     #[ORM\Column]
     private ?bool $is_archived = null;
 
+    #[ORM\Column]
+    private ?bool $is_public = null;
+
     /**
      * @var Collection<int, Task>
      */
@@ -54,6 +57,7 @@ class Todo
         $this->tasks = new ArrayCollection();
         $this->likes = new ArrayCollection();
         $this->is_archived = false;
+        $this->is_public = false;
     }
 
     #[ORM\PrePersist]
@@ -134,6 +138,18 @@ class Todo
         return $this;
     }
 
+    public function isPublic(): ?bool
+    {
+        return $this->is_public;
+    }
+
+    public function setIsPublic(bool $is_public): static
+    {
+        $this->is_public = $is_public;
+
+        return $this;
+    }
+
     /**
      * @return Collection<int, Task>
      */
@@ -176,7 +192,7 @@ class Todo
     {
         if (!$this->likes->contains($like)) {
             $this->likes->add($like);
-            $like->setList($this);
+            $like->setTodo($this);
         }
 
         return $this;
@@ -186,8 +202,8 @@ class Todo
     {
         if ($this->likes->removeElement($like)) {
             // set the owning side to null (unless already changed)
-            if ($like->getList() === $this) {
-                $like->setList(null);
+            if ($like->getTodo() === $this) {
+                $like->setTodo(null);
             }
         }
 
@@ -204,5 +220,10 @@ class Todo
         $this->creator = $creator;
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->name;
     }
 }
