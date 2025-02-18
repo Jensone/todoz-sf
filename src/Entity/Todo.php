@@ -29,6 +29,9 @@ class Todo
     #[Assert\Length(min: 2, message: 'Le champ name doit faire minimum 2 caractères')]
     #[ORM\Column(length: 80)]
     private ?string $name = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $ref = null;
     
     #[Assert\NotBlank(message: 'Le champ catégorie est obligatoire')]
     #[Assert\Choice(
@@ -89,6 +92,7 @@ class Todo
     {
         $this->created_at = new \DateTimeImmutable();
         $this->updated_at = new \DateTimeImmutable();
+        $this->ref = uniqid();
     }
 
     #[ORM\PreUpdate]
@@ -134,6 +138,18 @@ class Todo
     public function setName(string $name): static
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getRef(): ?string
+    {
+        return $this->ref;
+    }
+
+    public function setRef(string $ref): static
+    {
+        $this->ref = $ref;
 
         return $this;
     }
