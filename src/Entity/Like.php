@@ -4,11 +4,9 @@ namespace App\Entity;
 
 use App\Repository\LikeRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\UX\Turbo\Attribute\Broadcast;
 
 #[ORM\Entity(repositoryClass: LikeRepository::class)]
 #[ORM\Table(name: '`like`')]
-#[Broadcast]
 class Like
 {
     #[ORM\Id]
