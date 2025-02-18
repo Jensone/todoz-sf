@@ -1,0 +1,48 @@
+<div class="w-full py-6 px-2 bg-white shadow-md rounded-md">
+    {{ form_start(todoForm) }}
+    
+    <div class="mb-4">
+        {{ form_row(todoForm.name, {
+            'label': false,
+            'attr': {
+                'class': '',
+                'placeholder': 'ex. Courses pour la semaine',
+        }
+        }) }}
+        <label for="" class="text-sm italic">
+            Choisissez un nom pour votre liste
+        </label>
+    </div>
+
+    <div class="mb-4">
+        {{ form_row(todoForm.is_public, {
+            'label':'Rendre public',
+            'attr': {
+                'class': '',
+
+        }
+        }) }}
+    </div>
+
+    <div class="mb-4">
+        {{ form_row(todoForm.category, {
+            'label': false,
+            'attr': {
+                'class': 'py-2 px-4 rounded-full w-full text-center capitalize',
+            }
+        }) }}
+        <label for="" class="text-sm italic">
+            Choisissez une catégorie
+        </label>
+    </div>
+
+    <div class="mb-4 flex justify-end">
+        {{ form_row(todoForm.submit, {
+            'attr': {
+                'class': '',
+            },
+        })}}
+    </div>
+    
+    {{ form_end(todoForm) }}
+</div>
