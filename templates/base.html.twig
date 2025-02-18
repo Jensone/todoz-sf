@@ -7,7 +7,7 @@
         <link rel="icon" href="{{ asset('media/images/icon.svg') }}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
         {% block stylesheets %}
         {% endblock %}
 
@@ -15,7 +15,11 @@
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
-    <body>
-        {% block body %}{% endblock %}
+    <body class="bg-emerald-50">
+        {{ include('components/navbar.html.twig') }}
+        <div class="m-2 p-4 bg-slate-50 border border-slate-200 rounded-lg shadow min-h-screen">
+            {% block body %}{% endblock %}
+        </div>
+        {{ include('components/footer.html.twig') }}
     </body>
 </html>

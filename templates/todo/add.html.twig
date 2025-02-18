@@ -3,5 +3,16 @@
 {% block title %}Créez un nouvelle{% endblock %}
 
 {% block body %}
-    {{ form(todoForm) }}
+    <header class="flex items-center justify-center gap-4 py-8">
+        {{ ux_icon('tabler:new-section', { class: 'h-24 text-emerald-800' }) }}
+        <div class="">
+            <h1 class="text-3xl font-semibold">{{ pageTitle ?? 'Non renseigné' }}</h1>
+            <p class="text-base text-emerald-600">
+                {{ pageSubtitle ?? 'Non renseigné' }}
+            </p>
+        </div>
+    </header>
+    <div class="p-4">
+        {{ include('todo/form.html.twig') }}
+    </div>
 {% endblock %}

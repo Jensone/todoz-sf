@@ -2,79 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-    :root {
-        --background: 289 66% 98%;
-        --foreground: 289 50% 4%;
-        --muted: 259 11% 91%;
-        --muted-foreground: 259 12% 33%;
-        --popover: 289 66% 98%;
-        --popover-foreground: 289 50% 4%;
-        --card: 289 66% 98%;
-        --card-foreground: 289 50% 4%;
-        --border: 289 5% 90%;
-        --input: 289 5% 90%;
-        --primary: 289 63% 85%;
-        --primary-foreground: 289 63% 25%;
-        --secondary: 259 63% 85%;
-        --secondary-foreground: 259 63% 25%;
-        --accent: 319 63% 85%;
-        --accent-foreground: 319 63% 25%;
-        --destructive: 20 98% 39%;
-        --destructive-foreground: 0 0% 100%;
-        --ring: 289 63% 85%;
-        --chart-1: 289 63% 85%;
-        --chart-2: 259 63% 85%;
-        --chart-3: 319 63% 85%;
-        --chart-4: 259 63% 88%;
-        --chart-5: 289 66% 85%;
-        --radius: 0.5rem;
-    }
-
-    .dark {
-        --background: 289 43% 3%;
-        --foreground: 289 37% 98%;
-        --muted: 259 11% 9%;
-        --muted-foreground: 259 12% 67%;
-        --popover: 289 43% 3%;
-        --popover-foreground: 289 37% 98%;
-        --card: 289 43% 3%;
-        --card-foreground: 289 37% 98%;
-        --border: 289 5% 13%;
-        --input: 289 5% 13%;
-        --primary: 289 63% 85%;
-        --primary-foreground: 289 63% 25%;
-        --secondary: 259 63% 85%;
-        --secondary-foreground: 259 63% 25%;
-        --accent: 319 63% 85%;
-        --accent-foreground: 319 63% 25%;
-        --destructive: 20 98% 60%;
-        --destructive-foreground: 0 0% 0%;
-        --ring: 289 63% 85%;
-        --chart-1: 289 63% 85%;
-        --chart-2: 259 63% 85%;
-        --chart-3: 319 63% 85%;
-        --chart-4: 259 63% 88%;
-        --chart-5: 289 66% 85%;
-    }
-}
-
 /* Core */
 body {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 1.2rem;
 }
 
 /* Fonts */
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Oswald" sans-serif;
-    font-weight: 300;
+    font-family: "DM Serif Display", sans-serif;
+    font-weight: 400;
 }
 .logo {
-    font-family: "Delicious Handrawn", sans-serif;
-    font-weight: 600;
-    font-size: 1.85rem;
-    text-transform: uppercase;
+    font-family: "DM Serif Display", sans-serif;
     font-weight: 400;
 }
 
@@ -84,9 +24,16 @@ a {
 }
 
 /* Forms */
-input {}
+input {
+    @apply w-full border-b-2 border-gray-200 focus:border-blue-500 focus:outline-none focus:ring-0 sm:text-sm
+}
 input[type="checkbox"] {}
-label {}
+label {
+    @apply text-sm italic
+}
 select {}
 textarea {}
-button {}
+button[type="submit"] {
+    @apply bg-emerald-500 text-neutral-50 py-2 px-4 rounded-full hover:bg-emerald-800 transition ease-in-out duration-300
+    
+}

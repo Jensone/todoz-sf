@@ -18,8 +18,12 @@ class TodoFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class)
-            ->add('is_public', CheckboxType::class)
+            ->add('name', TextType::class, [
+                'label' => '',
+            ])
+            ->add('is_public', CheckboxType::class, [
+                'required' => false,
+            ])
             ->add('category', ChoiceType::class, [
                 'choices' => [
                     'divers' => 'divers',
