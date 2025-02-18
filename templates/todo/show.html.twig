@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ todo.name ?? 'Liste de tâches' }}{% endblock %}
+
+{% block body %}
+    {{ dump(todo) }}
+{% endblock %}
