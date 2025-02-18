@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\UX\Turbo\Attribute\Broadcast;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: TodoRepository::class)]
 #[Broadcast]
@@ -24,9 +25,32 @@ class Todo
     #[ORM\Column]
     private ?\DateTimeImmutable $updated_at = null;
 
+    #[Assert\NotBlank(message: 'Le champ nom est obligatoire')]
+    #[Assert\Length(min: 2, message: 'Le champ name doit faire minimum 2 caractères')]
     #[ORM\Column(length: 80)]
     private ?string $name = null;
-
+    
+    #[Assert\NotBlank(message: 'Le champ catégorie est obligatoire')]
+    #[Assert\Choice(
+        choices: [
+            'divers',
+            'courses', 
+            'administratif', 
+            'factures', 
+            'sorties', 
+            'anniversaire', 
+            'urgent', 
+            'ménage', 
+            'déménagement',
+            'business',
+            'travail',
+            'voyage',
+            'sport',
+            'santé',
+            'rdv',
+            'culture'
+            ]
+    )]
     #[ORM\Column(length: 80)]
     private ?string $category = null;
 

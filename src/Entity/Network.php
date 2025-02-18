@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\NetworkRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\UX\Turbo\Attribute\Broadcast;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: NetworkRepository::class)]
 #[Broadcast]
@@ -22,9 +23,15 @@ class Network
     #[ORM\Column]
     private ?\DateTimeImmutable $updated_at = null;
 
+    #[Assert\NotBlank(message: 'Le champ url est obligatoire')]
+    #[Assert\Url(message: 'Le champ url doit être une URL valide')]
     #[ORM\Column(length: 255)]
     private ?string $url = null;
 
+    #[Assert\NotBlank(message: 'Le champ type est obligatoire')]
+    #[Assert\Choice(
+        choices: ['facebook', 'twitter', 'youtube', 'instagram', 'tiktok', 'reddit', 'linkedin'], 
+        message: 'Le champ type doit être une des valeurs suivantes : ')]
     #[ORM\Column(length: 80)]
     private ?string $type = null;
 

@@ -6,6 +6,7 @@ use App\Repository\TaskRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\UX\Turbo\Attribute\Broadcast;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: TaskRepository::class)]
 #[Broadcast]
@@ -23,14 +24,13 @@ class Task
     #[ORM\Column]
     private ?\DateTimeImmutable $updated_at = null;
 
+    #[Assert\NotBlank(message: 'Vous devez écrire quelque chose')]
+    #[Assert\Length(min: 5, minMessage: 'Votre commentaire doit contenir au moins {{ limit }} caractères')]
     #[ORM\Column(length: 255)]
     private ?string $content = null;
 
     #[ORM\Column]
     private ?bool $is_done = null;
-
-    #[ORM\Column]
-    private ?bool $is_public = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $time_due = null;
@@ -42,7 +42,6 @@ class Task
     public function __construct()
     {
         $this->is_done = false;
-        $this->is_public = false;
     }
 
     #[ORM\PrePersist]
@@ -107,18 +106,6 @@ class Task
     public function setIsDone(bool $is_done): static
     {
         $this->is_done = $is_done;
-
-        return $this;
-    }
-
-    public function isPublic(): ?bool
-    {
-        return $this->is_public;
-    }
-
-    public function setIsPublic(bool $is_public): static
-    {
-        $this->is_public = $is_public;
 
         return $this;
     }
