@@ -27,16 +27,16 @@ final class TodoController extends AbstractController
     public function show(string $ref): Response
     {
         return $this->render('todo/show.html.twig', [
-            'todo' => $this->tr->findByRef($ref),
+            'todo' => $this->tr->findOneByRef($ref),
         ]);
     }
 
     #[Route('/todos/delete/{ref}', name: 'todos_delete', methods: ['POST'])]
     public function delete(string $ref): Response
     {
-        $todo = $this->tr->findByRef($ref);
+        $todo = $this->tr->findOneByRef($ref);
 
-        if($todo->getCreator() === $this->getUser()){
+        if($todo->getCreator() == $this->getUser()){
             $this->em->remove($todo);
             $this->em->flush();
 

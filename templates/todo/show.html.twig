@@ -4,4 +4,13 @@
 
 {% block body %}
     {{ dump(todo) }}
+
+    <hr>
+
+    <form action={{ path('todos_delete', { 'ref': todo.ref }) }} method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token('todos_delete') }}">
+        <button type="submit" onclick="return confirm('Vous êtes sûr ?')">
+            Supprimer
+        </button>
+    </form>
 {% endblock %}
