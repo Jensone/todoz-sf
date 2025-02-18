@@ -24,7 +24,7 @@ class Todo
     private ?\DateTimeImmutable $updated_at = null;
 
     #[Assert\NotBlank(message: 'Le champ nom est obligatoire')]
-    #[Assert\Length(min: 2, message: 'Le champ name doit faire minimum 2 caractères')]
+    #[Assert\Length(min: 2, minMessage: 'Le champ name doit faire minimum 2 caractères')]
     #[ORM\Column(length: 80)]
     private ?string $name = null;
 
