@@ -44,6 +44,8 @@ final class TodoController extends AbstractController
 
         return $this->render('todo/add.html.twig', [
             'todoForm' => $form,
+            'pageTitle' => 'Ajouter une liste',
+            'pageSubtitle' => 'Créons une nouvelle liste de chose à faire',
         ]);
     }
     
@@ -64,6 +66,8 @@ final class TodoController extends AbstractController
 
         return $this->render('todo/edit.html.twig', [
             'todoForm' => $form,
+            'pageTitle' => 'Modifier une liste',
+            'pageSubtitle' => 'Ajustons un peu les choses à faire',
         ]);
     }
     
