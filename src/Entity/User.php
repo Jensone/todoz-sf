@@ -49,7 +49,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $username = null;
 
     #[Assert\NotBlank]
-    #[Assert\Url]
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
