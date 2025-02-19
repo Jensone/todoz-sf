@@ -4,8 +4,7 @@
 
 /* Core */
 body {
-    font-family: "Poppins", sans-serif;
-    font-size: 1.2rem;
+    font-family: "Poppins", serif;
 }
 
 /* Fonts */
@@ -22,20 +21,3 @@ a {
     text-decoration: none;
     color: var(--primary);
 }
-
-/* Forms */
-/* input {
-    @apply w-full border-b-2 border-gray-200 focus:border-blue-500 focus:outline-none focus:ring-0 sm:text-sm
-}
-input[type="checkbox"] {}
-label {
-    @apply text-sm italic
-}
-select {}
-textarea {}
-.btn {
-    @apply bg-emerald-500 text-neutral-50 py-2 px-4 rounded-full hover:bg-emerald-800 transition ease-in-out duration-300
-    
-} */
-
-/* Modals */
