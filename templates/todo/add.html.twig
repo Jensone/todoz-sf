@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Créez un nouvelle{% endblock %}
+{% block title %}{{ pageTitle }}{% endblock %}
 
 {% block body %}
     <header class="flex items-center justify-center gap-4 py-8">
         {{ ux_icon('tabler:new-section', { class: 'h-24 text-emerald-800' }) }}
         <div class="">
-            <h1 class="text-3xl font-semibold">{{ pageTitle ?? 'Non renseigné' }}</h1>
+            <h1 class="text-3xl font-semibold">{{ pageTitle ?? '' }}</h1>
             <p class="text-base text-emerald-600">
-                {{ pageSubtitle ?? 'Non renseigné' }}
+                {{ pageSubtitle ?? '' }}
             </p>
         </div>
     </header>

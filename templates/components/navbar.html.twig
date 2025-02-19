@@ -1,15 +1,16 @@
-<div class="">
+<div class="relative">
+	<div class="menu-overlay absolute z-50 h-screen w-full bg-gradient-to-b from-neutral-800 to-transparent hidden p-4">
+		<div class="flex justify-between items-center border-b border-emerald-50 pb-4">
+			<p class="dm-serif text-emerald-50 hover:-translate-y-1 transform transition-all ease-in-out duration-300 cursor-none">Menu</p>
+			<button id="menuClose" class="hover:-translate-y-1 transform transition-all ease-in-out duration-300">
+				{{ ux_icon('mdi:remove', { class: 'text-emerald-50 h-6'}) }}
+			</button>
+		</div>
+	</div>
 	<nav class="flex items-center justify-between gap-2 p-3">
-        <p class="logo text-3xl">todoz</p>
+        <a href="/" class="logo text-3xl">todoz</a>
         <button id="menuToggle" class="">
             {{ ux_icon('mdi:menu', { class: 'text-emerald-800 h-6 closed'}) }}
         </button>
 	</nav>
-	{# <div class="">
-		<div class="flex justify-end">
-			<button id="menuClose" class="">
-				{{ ux_icon('mdi:remove', { class: 'text-red-700 h-6'}) }}
-			</button>
-		</div>
-	</div> #}
 </div>

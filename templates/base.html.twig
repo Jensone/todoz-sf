@@ -17,9 +17,12 @@
     </head>
     <body class="bg-emerald-50">
         {{ include('components/navbar.html.twig') }}
-        <div class="m-2 p-4 bg-slate-50 border border-slate-200 rounded-lg shadow min-h-screen">
+        <div class="m-2 px-4 pt-4 pb-8">
             {% block body %}{% endblock %}
         </div>
+        <p class="text-center text-xs text-neutral-500 mt-4">
+            &copy; {{ 'now'|date('Y') }} todoz
+        </p>
         {{ include('components/footer.html.twig') }}
     </body>
 </html>
