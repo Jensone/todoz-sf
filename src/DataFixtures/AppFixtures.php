@@ -86,6 +86,7 @@ class AppFixtures extends Fixture
             $manager->persist($user);
             array_push($users, $user);
 
+            // Création des réseaux de l'utilisateur
             for ($n=0; $n < 3; $n++) { 
                 $selectedNetwork = $faker->randomElement($networks);
                 $net = new Network();
