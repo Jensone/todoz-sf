@@ -16,20 +16,19 @@ class TodoRepository extends ServiceEntityRepository
         parent::__construct($registry, Todo::class);
     }
 
-    //    /**
-    //     * @return Todo[] Returns an array of Todo objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('t')
-    //            ->andWhere('t.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('t.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
+    /**
+     * @return Todo[] Returns an array of Todo objects
+     */
+    public function findByQuery($value): array
+    {
+        return $this->createQueryBuilder('t')
+            ->andWhere('t.name LIKE :val')
+            ->setParameter('val', '%' . $value . '%')
+            ->orderBy('t.id', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
     //    public function findOneBySomeField($value): ?Todo
     //    {
