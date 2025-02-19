@@ -16,12 +16,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuOverlay = document.querySelector('.menu-overlay');
     
     menuToggle.addEventListener('click', function() {
-        menuOverlay.classList.add('active');
+        menuOverlay.classList.remove('hidden');
         document.body.classList.add('menu-open');
     });
 
     menuClose.addEventListener('click', function() {
-        menuOverlay.classList.remove('active');
+        menuOverlay.classList.add('hidden');
         document.body.classList.remove('menu-open');
     });
 });
+
+
