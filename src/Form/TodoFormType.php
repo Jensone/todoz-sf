@@ -19,30 +19,36 @@ class TodoFormType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => '',
+                'label' => 'Choisissez un nom pour votre liste',
+                'attr' => [
+                    'placeholder' => 'Nom de la liste',
+                ],
             ])
             ->add('is_public', CheckboxType::class, [
+                'label' => 'Rendre la liste publique ?',
                 'required' => false,
             ])
             ->add('category', ChoiceType::class, [
                 'choices' => [
-                    'divers' => 'divers',
-                    'courses' => 'courses', 
-                    'administratif' => 'administratif', 
-                    'factures' => 'factures', 
-                    'sorties' => 'sorties', 
-                    'anniversaire' => 'anniversaire', 
-                    'urgent' => 'urgent', 
-                    'ménage' => 'ménage', 
-                    'déménagement' => 'déménagement',
-                    'business' => 'business',
-                    'travail' => 'travail',
-                    'voyage' => 'voyage',
-                    'sport' => 'sport',
-                    'santé' => 'santé',
-                    'rdv' => 'rdv',
-                    'culture' => 'culture'
+                    'Divers' => 'divers',
+                    'Courses' => 'courses', 
+                    'Administratif' => 'administratif', 
+                    'Factures' => 'factures', 
+                    'Sorties' => 'sorties', 
+                    'Anniversaire' => 'anniversaire', 
+                    'Urgent' => 'urgent', 
+                    'Ménage' => 'ménage', 
+                    'Déménagement' => 'déménagement',
+                    'Business' => 'business',
+                    'Travail' => 'travail',
+                    'Voyage' => 'voyage',
+                    'Sport' => 'sport',
+                    'Santé' => 'santé',
+                    'Rendez-vous' => 'rdv',
+                    'Culture' => 'culture',
                 ],
+                'label' => 'Choisissez une catégorie',
+                'placeholder' => 'Sélectionnez une catégorie',
             ])
             ->add('tasks', CollectionType::class, [
                 'entry_type' => TaskFormType::class,
@@ -51,9 +57,19 @@ class TodoFormType extends AbstractType
                 ],
                 'allow_add' => true,
                 'allow_delete' => true,
+                'prototype' => true,
+                'by_reference' => false,
+                'label' => 'Tâches',
+                'attr' => [
+                    'class' => 'task-collection',
+                ],
             ])
-            ->add('submit', SubmitType::class)
-        ;
+            ->add('submit', SubmitType::class, [
+                'label' => 'Enregistrer',
+                'attr' => [
+                    'class' => '',
+                ],
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
