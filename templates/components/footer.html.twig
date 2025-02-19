@@ -1,16 +1,18 @@
 <div class="fixed bottom-0 w-full bg-slate-50 shadow">
-	<nav class="flex flex-wrap items-center bg-slate-50 shadow text-neutral-800">
-        <a href="#" class="w-1/4 py-2 grid place-items-center hover:bg-slate-100 transition-all ease-in-out duration-300">
-            <span>{{ ux_icon('lineicons:home-2', { class: 'h-8'}) }}</span>
-        </a>
-        <a href="#" class="w-1/4 py-2 grid place-items-center hover:bg-slate-100 transition-all ease-in-out duration-300">
-            <span>{{ ux_icon('lineicons:box-archive-1', { class: 'h-8'}) }}</span>
-        </a>
-        <a href="#" class="w-1/4 py-2 grid place-items-center hover:bg-slate-100 transition-all ease-in-out duration-300">
-            <span>{{ ux_icon('mdi:plus-box-outline', { class: 'h-8'}) }}</span>
-        </a>
-        <a href="#" class="w-1/4 py-2 grid place-items-center hover:bg-slate-100 transition-all ease-in-out duration-300">
-            <span>{{ ux_icon('mdi:search', { class: 'h-8'}) }}</span>
-        </a>
-	</nav>
+    <div class="">
+        <nav class="flex flex-wrap items-center bg-slate-50 shadow text-neutral-800">
+            <a href="#" class="w-1/4 py-2 grid place-items-center hover:bg-emerald-100 transition-all ease-in-out duration-300">
+                <span>{{ ux_icon('lineicons:home-2', { class: 'h-8'}) }}</span>
+            </a>
+            <a href="#" class="w-1/4 py-2 grid place-items-center hover:bg-emerald-100 transition-all ease-in-out duration-300">
+                <span>{{ ux_icon('lineicons:box-archive-1', { class: 'h-8'}) }}</span>
+            </a>
+            <a href="#" class="w-1/4 py-2 grid place-items-center hover:bg-emerald-100 transition-all ease-in-out duration-300">
+                <span>{{ ux_icon('mdi:plus-box-outline', { class: 'h-8'}) }}</span>
+            </a>
+            <button href={{ path('search') }} class="w-1/4 py-2 grid place-items-center hover:bg-emerald-100 transition-all ease-in-out duration-300">
+                <span>{{ ux_icon('mdi:search', { class: 'h-8'}) }}</span>
+            </button>
+        </nav>
+    </div>
 </div>
