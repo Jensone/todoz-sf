@@ -1,48 +1,41 @@
-<div class="w-full py-6 px-2 bg-white shadow-md rounded-md">
-    {{ form_start(todoForm) }}
-    
-    <div class="mb-4">
-        {{ form_row(todoForm.name, {
-            'label': false,
-            'attr': {
-                'class': '',
-                'placeholder': 'ex. Courses pour la semaine',
-        }
-        }) }}
-        <label for="" class="text-sm italic">
-            Choisissez un nom pour votre liste
-        </label>
-    </div>
+{% extends 'base.html.twig' %}
 
-    <div class="mb-4">
-        {{ form_row(todoForm.is_public, {
-            'label':'Rendre public',
-            'attr': {
-                'class': '',
+{% block title %}
+	{{ pageTitle }}
+{% endblock %}
 
-        }
-        }) }}
-    </div>
+{% block body %}
+	<header class="text-center py-8">
+		<h1 class="text-3xl font-semibold">{{ pageTitle ?? '' }}</h1>
+		<p class="text-base text-emerald-600">
+			{{ pageSubtitle ?? '' }}
+		</p>
+	</header>
+    <div class="w-full py-6 px-2 bg-white shadow-md rounded-md">
+        {{ form_start(todoForm) }}
+            {{ form_row(todoForm.name) }}
+            {{ form_row(todoForm.is_public) }}
+            {{ form_row(todoForm.category) }}
 
-    <div class="mb-4">
-        {{ form_row(todoForm.category, {
-            'label': false,
-            'attr': {
-                'class': 'py-2 px-4 rounded-full w-full text-center capitalize',
-            }
-        }) }}
-        <label for="" class="text-sm italic">
-            Choisissez une catégorie
-        </label>
-    </div>
+            <div id="tasks" data-prototype="{{ form_widget(todoForm.tasks.vars.prototype)|e('html_attr') }}">
+                {% for task in todoForm.tasks %}
+                    <div class="task-item">
+                        {{ form_row(task) }}
+                    </div>
+                {% endfor %}
+            </div>
 
-    <div class="mb-4 flex justify-end">
-        {{ form_row(todoForm.submit, {
-            'attr': {
-                'class': '',
-            },
-        })}}
+            <button type="button" class="add-task" data-target="#tasks">Ajouter une tâche</button>
+            {{ form_row(todoForm.submit) }}
+        {{ form_end(todoForm) }}
     </div>
-    
-    {{ form_end(todoForm) }}
-</div>
+<script>
+document.querySelector('.add-task').addEventListener('click', function() {
+    const collection = document.querySelector(this.dataset.target);
+    const prototype = collection.dataset.prototype;
+    const index = collection.children.length;
+    const newForm = prototype.replace(/__name__/g, index);
+    collection.insertAdjacentHTML('beforeend', newForm);
+});
+</script>
+{% endblock %}
