@@ -10,7 +10,7 @@
 			<h1 class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 to-emerald-900">
 				{{ todo.name ?? 'Non renseigné' }}
 			</h1>
-			<div class="flex gap-4 items-center text-xs text-neutral-500">
+			<div class="flex gap-4 flex-wrap items-center text-xs text-neutral-500">
 				<p class="flex gap-1 items-center bg-white py-1 px-2 rounded-full">
 					{{ ux_icon('mdi:cube', { class: 'h-4 w-4'}) }}
 					{{ todo.category|capitalize }}
@@ -27,12 +27,12 @@
 		</div>
 	</header>
 
-	<section class="mt-4 pt-4">
+	<section class="pt-4">
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
 			{% if todo.tasks|length > 0 %}
 				{% for task in todo.tasks %}
 					<div class="rounded-lg shadow p-4 bg-white hover:-translate-y-1 hover:shadow-md transition-all ease-in-out duration-300 relative">
-						<p class="w-full overflow-hidden whitespace-nowrap overflow-ellipsis">
+						<p class="w-full text-sm overflow-hidden whitespace-nowrap overflow-ellipsis">
 							{{ task.content }}
 						</p>
 					</div>
