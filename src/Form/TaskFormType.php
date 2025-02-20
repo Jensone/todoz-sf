@@ -26,6 +26,9 @@ class TaskFormType extends AbstractType
                 'label' => 'À faire avant le',
                 'widget' => 'single_text',
                 'required' => false,
+                'attr' => [
+                    'value' => (new \DateTime())->format('Y-m-d H:i'),
+                ],
             ])
         ;
     }
