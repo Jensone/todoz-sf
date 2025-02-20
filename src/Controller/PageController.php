@@ -16,7 +16,7 @@ final class PageController extends AbstractController
         ]);
     }
 
-    #[Route('/search', name: 'search', methods: ['GET', 'POST'])]
+    #[Route('/recherche', name: 'search', methods: ['GET', 'POST'])]
     public function search(): Response
     {
         return $this->render('page/search.html.twig');
