@@ -25,7 +25,7 @@ class TodoFormType extends AbstractType
                 ],
             ])
             ->add('is_public', CheckboxType::class, [
-                'label' => 'Rendre la liste publique ?',
+                'label' => false,
                 'required' => false,
             ])
             ->add('category', ChoiceType::class, [
@@ -37,13 +37,13 @@ class TodoFormType extends AbstractType
                     'Sorties' => 'sorties', 
                     'Anniversaire' => 'anniversaire', 
                     'Urgent' => 'urgent', 
-                    'Ménage' => 'ménage', 
-                    'Déménagement' => 'déménagement',
+                    'Ménage' => 'menage', 
+                    'Déménagement' => 'demenagement',
                     'Business' => 'business',
                     'Travail' => 'travail',
                     'Voyage' => 'voyage',
                     'Sport' => 'sport',
-                    'Santé' => 'santé',
+                    'Santé' => 'sante',
                     'Rendez-vous' => 'rdv',
                     'Culture' => 'culture',
                 ],
@@ -59,7 +59,7 @@ class TodoFormType extends AbstractType
                 'allow_delete' => true,
                 'prototype' => true,
                 'by_reference' => false,
-                'label' => 'Tâches',
+                'label' => false,
                 'attr' => [
                     'class' => 'task-collection',
                 ],

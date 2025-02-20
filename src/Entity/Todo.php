@@ -42,12 +42,12 @@ class Todo
             'anniversaire', 
             'urgent', 
             'ménage', 
-            'déménagement',
+            'demenagement',
             'business',
             'travail',
             'voyage',
             'sport',
-            'santé',
+            'sante',
             'rdv',
             'culture'
             ]
@@ -64,7 +64,7 @@ class Todo
     /**
      * @var Collection<int, Task>
      */
-    #[ORM\OneToMany(targetEntity: Task::class, mappedBy: 'todo', orphanRemoval: true)]
+    #[ORM\OneToMany(targetEntity: Task::class, mappedBy: 'todo', orphanRemoval: true, cascade: ['persist'])]
     private Collection $tasks;
 
     /**

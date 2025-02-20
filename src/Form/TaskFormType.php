@@ -15,11 +15,18 @@ class TaskFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('content', TextareaType::class, [])
-            ->add('time_due', DateTimeType::class, [
-                'widget' => 'single_text',
+            ->add('content', TextareaType::class, [
+                'label' => 'Décrivez la tâche à réaliser',
+                'attr' => [
+                    'rows' => 2,
+                    'placeholder' => 'Exemple : Acheter du pain sans gluten 🤷🏽‍♂️',
+                ],
             ])
-            ->add('submit', SubmitType::class, [])
+            ->add('time_due', DateTimeType::class, [
+                'label' => 'À faire avant le',
+                'widget' => 'single_text',
+                'required' => false,
+            ])
         ;
     }
 
