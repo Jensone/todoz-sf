@@ -21,13 +21,13 @@
                         <div class="text-xs text-center text-red-700 p-2 rounded mb-4">😬 {{ error.messageKey|trans(error.messageData, 'security') }}</div>
                     {% endif %}
 
-                    <div class="mb-4">
-                        <label for="username" class="mb-2">Adresse e-mail</label>
+                    <div>
+                        <label for="username">Adresse e-mail</label>
                         <input type="email" value="{{ last_username }}" name="_username" id="username" autocomplete="email" required autofocus>
                     </div>
 
-                    <div class="mb-6">
-                        <label for="password" class="mb-2">Mot de passe</label>
+                    <div>
+                        <label for="password">Mot de passe</label>
                         <input type="password" name="_password" id="password" autocomplete="current-password" required>
                     </div>
 
@@ -38,6 +38,12 @@
                         Connexion
                     </button>
                 </form>
+
+
+                <div class="text-center mt-4 flex flex-col gap-2">
+                    <a href="#" class="text-xs text-emerald-600 hover:underline">Mot de passe oublié ?</a>
+                    <a href="{{ path('app_register') }}" class="text-xs text-neutral-600 hover:underline">Pas encore de compte ? Inscrivez-vous</a>
+                </div>
             {% endif %}
         </div>
     </div>
