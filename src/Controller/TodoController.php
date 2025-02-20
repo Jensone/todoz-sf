@@ -53,6 +53,12 @@ final class TodoController extends AbstractController
     public function edit(Request $request, string $ref): Response
     {
         $todo = $this->tr->findOneByRef($ref);
+
+        if($todo->getCreator() != $this->getUser()){
+            $this->addFlash('danger', 'Cette tâche ne vous appartient pas');
+            return $this->redirectToRoute('todos_index');
+        }
+
         $form = $this->createForm(TodoFormType::class, $todo);
         $form = $form->handleRequest($request);
 

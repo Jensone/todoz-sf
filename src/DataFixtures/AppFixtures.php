@@ -74,14 +74,35 @@ class AppFixtures extends Fixture
             ],
         ];
 
+        // Admin 
+        $admin = new User();
+        $admin
+            ->setEmail('admin@admin.com')
+            ->setUsername('admin')
+            ->setPassword($this->hasher->hashPassword($admin, 'admin123'))
+            ->setRoles(['ROLE_ADMIN'])
+            ->setIsMajor(true)
+            ->setIsTerms(true)
+            ->setIsGpdr(true)
+            ->setIsVerified(true)
+        ;
+
+        $manager->persist($admin);
+
         // Utilisateurs
         $users = [];
         for ($i=0; $i < 25; $i++) { 
             $username = $faker->username;
             $user = new User();
-            $user->setEmail($faker->email);
-            $user->setUsername($username);
-            $user->setPassword($this->hasher->hashPassword($user, 'admin123'));
+            $user
+                ->setEmail($faker->email)
+                ->setUsername($username)
+                ->setPassword($this->hasher->hashPassword($user, 'admin123'))
+                ->setIsMajor(true)
+                ->setIsTerms(true)
+                ->setIsGpdr(true)
+                ->setIsVerified($faker->boolean(90))
+            ;
 
             $manager->persist($user);
             array_push($users, $user);
