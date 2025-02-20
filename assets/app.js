@@ -26,4 +26,13 @@ document.addEventListener('turbo:load', function() {
             document.body.classList.remove('menu-open');
         });
     }
+
+    // Ajouter une tâche
+    document.querySelector('.add-task').addEventListener('click', function() {
+        const collection = document.querySelector(this.dataset.target);
+        const prototype = collection.dataset.prototype;
+        const index = collection.children.length;
+        const newForm = prototype.replace(/__name__/g, index);
+        collection.insertAdjacentHTML('beforeend', newForm);
+    });
 });
