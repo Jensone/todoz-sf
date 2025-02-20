@@ -21,3 +21,28 @@ a {
     text-decoration: none;
     color: var(--primary);
 }
+
+input[type="text"], textarea {
+    @apply w-full py-1 px-2 my-2 border border-emerald-700 rounded-sm text-sm focus:outline-none resize-none;
+}
+
+input[type="submit"], button[type="submit"] {
+    @apply w-full py-1 px-2 my-2 bg-emerald-700 text-white rounded-sm;
+}
+
+input[type="date"], input[type="datetime-local"] {
+    @apply w-full py-1 px-2 my-2 border border-emerald-700 rounded-sm text-sm focus:outline-none;
+}
+
+label {
+    @apply block text-sm text-gray-700;
+}
+
+label:not(.checkbox)::before {
+    content: '';
+    @apply bg-emerald-700 inline-block h-2 w-2 me-2 rounded-full;
+}
+
+select {
+    @apply w-full py-1 px-2 my-2 bg-slate-50 border text-sm border-emerald-700 rounded-sm;
+}
