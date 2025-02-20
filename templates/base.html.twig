@@ -17,12 +17,16 @@
     </head>
     <body class="bg-emerald-50">
         {{ include('components/navbar.html.twig') }}
-        <div class="m-2 px-4 pt-4 pb-8">
-            {% block body %}{% endblock %}
+        <div class="lg:hidden">
+            <div class="m-2 px-4 pt-4 pb-16 lg:hidden">
+                {% block body %}{% endblock %}
+            </div>
         </div>
-        <p class="text-center text-xs text-neutral-500 mt-4">
-            &copy; {{ 'now'|date('Y') }} todoz
-        </p>
         {{ include('components/footer.html.twig') }}
+        <div class="hidden lg:h-screen lg:grid place-items-center">
+            <h1 class="">
+                Pour une meilleure expérience, veuillez utiliser un smartphone ou une tablette.
+            </h1>
+        </div>
     </body>
 </html>

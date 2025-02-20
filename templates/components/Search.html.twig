@@ -2,13 +2,9 @@
     <!-- component html -->
     <h1 class="mb-2 text-lg">Résultats de votre recherche</h1>
     
-    <div class="bg-white rounded-md shadow">
-        <input type="text" data-model="query" 
-            class="w-full p-2 text-sm rounded-md focus:outline-none" 
-            placeholder="Tapez un mot clé...">
-    </div>
+    <input type="text" data-model="query" class="shadow" placeholder="Tapez un mot clé...">
 
-    <section class="mt-4 pt-4">
+    <section class="pt-4">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
             {% if this.todos|length > 0 %}
                 {% for todo in this.todos %}
@@ -18,9 +14,9 @@
                         </h3>
                         <div class="flex gap-2 items-center mt-1">
                             <div class="h-5 w-5 bg-gradient-to-r from-emerald-200 to-emerald-400 rounded-full"></div>
-                            <p class="text-sm italic text-neutral-500">il y a {{ todo.createdAt|time_diff }}, par {{ todo.creator.username }}</p>
+                            <p class="text-xs italic text-neutral-500">il y a {{ todo.createdAt|time_diff }}, par {{ todo.creator.username }}</p>
                         </div>
-                        <p class="text-sm bg-slate-200 absolute bottom-0 right-0 px-2 py-1 rounded-tl-xl">
+                        <p class="text-xs bg-slate-200 absolute bottom-0 right-0 px-2 py-1 rounded-tl-xl">
                             {{ ux_icon('mdi:eye', { class: 'h-5' }) }}
                         </p>
                     </a>

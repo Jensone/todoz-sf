@@ -10,7 +10,7 @@
 			<h1 class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 to-emerald-900">
 				{{ todo.name ?? 'Non renseigné' }}
 			</h1>
-			<div class="flex gap-4 items-center text-sm text-neutral-500">
+			<div class="flex gap-4 items-center text-xs text-neutral-500">
 				<p class="flex gap-1 items-center bg-white py-1 px-2 rounded-full">
 					{{ ux_icon('mdi:cube', { class: 'h-4 w-4'}) }}
 					{{ todo.category|capitalize }}
@@ -21,7 +21,7 @@
 				</p>
 				<p class="flex gap-1 items-center bg-white py-1 px-2 rounded-full">
 					{{ ux_icon('mdi:calendar-today', { class: 'h-4 w-4'}) }}
-					{{ todo.createdAt|date('d/m/Y') }}
+					{{ todo.createdAt|time_diff }}
 				</p>
 			</div>
 		</div>
@@ -52,7 +52,7 @@
         </a>
 		<form action={{ path('todos_delete', { 'ref': todo.ref } ) }} method="post">
 			<input type="hidden" name="csrf_token" value="{{ csrf_token('todos_delete') }}">
-			<button type="submit" onclick="return confirm('Vous êtes sûr ?')" class="flex gap-1 items-center hover:text-emerald-900 hover:-translate-y-1 transform transition-all ease-in-out duration-300">
+			<button type="submit" onclick="return confirm('Vous êtes sûr ?')" class="flex gap-1 items-center hover:-translate-y-1 transform transition-all ease-in-out duration-300">
                 {{ ux_icon('mdi:cross-circle-outline', { class: 'h-4 w-4'}) }}
 				Supprimer
 			</button>

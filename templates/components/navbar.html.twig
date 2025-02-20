@@ -29,18 +29,25 @@
 					</li>
 				{% else %}
 					<li class="hover:text-emerald-200">
-						<a href="{{ path('app_login') }}">
+						<a href={{ path('app_login') }} class="flex gap-2 items-center">
+							{{ ux_icon('lineicons:user-4', { class: 'h-4' }) }}
 							Se connecter
 						</a>
 					</li>
 					<li class="hover:text-emerald-200">
-						<a href="#">
+						{{ ux_icon('lineicons:star-fat', { class: 'h-4' }) }}
+						<a href={{ path('app_register') }}  class="flex gap-2 items-center">
 							S'inscrire
 						</a>
 					</li>
 				{% endif %}
 			</ul>
 			<div class="mt-10 py-6 flex flex-col items-center gap-2 text-[8px]">
+				{% if app.user %}
+					<a href={{ path('app_logout') }} class="flex gap-2 items-center text-xs text-red-400">
+						Déconnexion
+					</a>
+				{% endif %}
 				<hr class="w-1/2 border-emerald-800">
 				<p class="text-emerald-50 text-xs">todoz v1.0.0</p>
 				<div class="flex gap-2 pb-4 text-emerald-50">

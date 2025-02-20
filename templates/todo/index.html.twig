@@ -9,7 +9,7 @@
             <h1 class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 to-emerald-900">
                 {{ app.user.username ?? 'Non renseigné' }}
             </h1>
-            <p class="text-sm text-neutral-500">Inscrit(e) il y a {{ app.user.createdAt|time_diff }}</p>
+            <p class="text-xs text-neutral-500">Membre depuis {{ app.user.createdAt|time_diff }}</p>
         </div>
     </header>
 
@@ -24,12 +24,12 @@
                         <div class="flex gap-2 items-center mt-1">
                             <div class="h-5 w-5 bg-gradient-to-r from-emerald-200 to-emerald-400 rounded-full"></div>
                             <div class="flex flex-col">
-                                <p class="text-sm text-neutral-500">il y a {{ todo.createdAt|time_diff }}</p>
-                                <p class="text-sm text-neutral-500">{{ todo.tasks|length }} tâche{{ todo.tasks|length > 1 ? 's' : '' }}</p>
+                                <p class="text-xs text-neutral-500">il y a {{ todo.createdAt|time_diff }}</p>
+                                <p class="text-xs text-neutral-500">{{ todo.tasks|length }} tâche{{ todo.tasks|length > 1 ? 's' : '' }}</p>
                             </div>
                         </div>
-                        <p class="text-sm bg-emerald-400 text-white absolute bottom-0 right-0 px-2 py-1 rounded-tl-xl">
-                            {{ todo.category ? todo.category|capitalize : 'Non renseigné' }}
+                        <p class="text-xs bg-emerald-400 text-white absolute bottom-0 right-0 px-2 py-1 rounded-tl-xl">
+                            {{ todo.category ? todo.category|capitalize : 'Divers' }}
                         </p>
                     </a>
                 {% else %}
