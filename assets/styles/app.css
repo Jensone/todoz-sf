@@ -22,8 +22,8 @@ a {
     color: var(--primary);
 }
 
-input[type="text"], textarea {
-    @apply w-full py-1 px-2 my-2 border border-emerald-700 rounded-sm text-sm focus:outline-none resize-none;
+input[type="text"], textarea, input[type="password"], input[type="email"] {
+    @apply w-full py-1 px-2 my-2 border border-emerald-700 rounded-sm text-center text-sm focus:outline-none resize-none;
 }
 
 input[type="submit"], button[type="submit"] {
