@@ -25,7 +25,7 @@ final class Search
         }
 
         return $this->tr->findBy(
-            [], // Pas de critère de recherche en BDD
+            ['is_public' => true], // Uniquement les todos publics
             ['created_at' => 'DESC'], // Ordre descendant 
             10 // Total de todos à récupérer
         );

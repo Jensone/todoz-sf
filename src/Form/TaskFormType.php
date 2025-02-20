@@ -19,7 +19,7 @@ class TaskFormType extends AbstractType
                 'label' => 'Décrivez la tâche à réaliser',
                 'attr' => [
                     'rows' => 2,
-                    'placeholder' => 'Exemple : Acheter du pain sans gluten 🤷🏽‍♂️',
+                    'placeholder' => 'Exemple : Acheter du pain sans gluten 🤷',
                 ],
             ])
             ->add('time_due', DateTimeType::class, [

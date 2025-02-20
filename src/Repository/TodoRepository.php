@@ -22,7 +22,8 @@ class TodoRepository extends ServiceEntityRepository
     public function findByQuery($value): array
     {
         return $this->createQueryBuilder('t')
-            ->andWhere('t.name LIKE :val')
+            ->where('t.name LIKE :val')
+            ->andWhere('t.isPublic = 1')
             ->setParameter('val', '%' . $value . '%')
             ->orderBy('t.id', 'DESC')
             ->getQuery()
