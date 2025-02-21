@@ -23,7 +23,7 @@ class TodoRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('t')
             ->where('t.name LIKE :val')
-            ->andWhere('t.isPublic = 1')
+            ->andWhere('t.is_public = 1')
             ->setParameter('val', '%' . $value . '%')
             ->orderBy('t.id', 'DESC')
             ->getQuery()
