@@ -5,7 +5,6 @@ namespace App\Twig\Components;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\DefaultActionTrait;
 use App\Repository\TodoRepository;
-use Doctrine\ORM\Mapping\OrderBy;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 
 #[AsLiveComponent]
