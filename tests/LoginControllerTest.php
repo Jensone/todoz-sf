@@ -32,6 +32,7 @@ class LoginControllerTest extends WebTestCase
         $user = (new User())->setEmail('email@example.com');
         $user->setPassword($passwordHasher->hashPassword($user, 'password'));
         $user->setUsername('martin');
+
         $em->persist($user);
         $em->flush();
     }
@@ -51,7 +52,7 @@ class LoginControllerTest extends WebTestCase
         $this->client->followRedirect();
 
         // Ensure we do not reveal if the user exists or not.
-        self::assertSelectorTextContains('.text-red-700', 'Identifiants invalides.');
+        self::assertSelectorTextContains('.text-red-700', '😬 Identifiants invalides.');
 
         // Denied - Can't login with invalid password.
         $this->client->request('GET', '/connexion');
@@ -66,7 +67,7 @@ class LoginControllerTest extends WebTestCase
         $this->client->followRedirect();
 
         // Ensure we do not reveal the user exists but the password is wrong.
-        self::assertSelectorTextContains('.text-red-700', 'Identifiants invalides.');
+        self::assertSelectorTextContains('.text-red-700', '😬 Identifiants invalides.');
 
         // Success - Login with valid credentials is allowed.
         $this->client->submitForm('Connexion', [
